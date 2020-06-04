@@ -1,0 +1,124 @@
+$jsYellow: #EEBA00;
+$mainBackground: #160C28;
+$lightBackground: #502B92;
+$lightGreen: #00A9A5;
+$greenMedium: #0B5351;
+$darkenBlue: #0F222E;
+$lakeGreen: #08352E;
+$darkRed: #3E131B;
+$cherryBackground: #801336;
+@import url('https://fonts.googleapis.com/css2?family=B612&display=swap');
+
+*{
+    margin: 0em;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'B612', sans-serif;
+}
+body{
+    transition: background-color .4s;
+}
+.main{
+    transition: background-color 2s .4s;
+}
+.main.home{
+    background-image: radial-gradient(circle 130rem at bottom, $lightBackground, $mainBackground, $mainBackground);
+}
+.main.example{
+    background-color: $cherryBackground;
+}
+js-message{
+    background: $jsYellow;
+    color: black;
+    font-size: 2.7rem;
+    padding:0 .6rem 0 .6rem;
+    letter-spacing: 0rem;
+    font-weight: 900;
+    border-radius: .1rem;
+    
+}
+.main-message{
+    color:white;
+    h1{
+        font-weight: 100;
+    }
+}
+.nav-menu{
+    color: white;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 1rem;
+    margin-left: auto;
+    position: absolute;
+    top: 0;
+    right: 0;
+    
+    .menu-button{
+        margin-left: 3.5rem;
+        cursor: pointer;
+        font-weight: 100;
+        font-size: 2rem;
+    }
+}
+
+.main-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    height: 100vh;
+    .main-message{
+        width: 60%;
+        p{
+            font-size: 2rem;
+        }
+    }
+
+}
+.selected-line{
+    transition: all .4s;
+    height: 0.1rem;
+    width: 7.5rem;
+    background: white;
+    position: absolute;
+}
+.spaceship,
+.moon{
+    position: absolute;
+    width: 10rem;
+    height: 10rem;
+    background-repeat: no-repeat;
+}
+.svg-image-container{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1999;
+    img{
+        position: absolute;
+        user-select: none;
+    }
+    
+}
+
+
+.loading-bar{
+    transition: width 4s ease;
+    height: .5rem;
+    position: fixed;
+    top: 0em;
+    left: 0em;
+    background-color: white;
+    z-index: 1000000;
+    width: 0%;
+}
+.loading-bar.medium{
+    width: 50%;
+}
+.loading-bar.complete{
+    width: 100%;
+}

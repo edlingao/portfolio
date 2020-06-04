@@ -1,0 +1,15 @@
+.spaceship{
+    top: -5rem;
+    left: -8.3rem;
+    width: 28rem !important;
+    height: 24rem !important;
+    background-image: url(../img/spaceship.svg);
+}
+.moon{
+    right: 1rem;
+    bottom: 10rem;
+    background-image: url(../img/moon.svg);
+    background-position: 10rem 6rem;
+    width: 21rem !important;
+    height: 17rem !important;
+}
