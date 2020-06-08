@@ -6,8 +6,11 @@ $greenMedium: #0B5351;
 $darkenBlue: #0F222E;
 $lakeGreen: #08352E;
 $darkRed: #3E131B;
+$orangeDescription: #F08700;
 $cherryBackground: #801336;
+$lightYellow: #FFD25A;
 @import url('https://fonts.googleapis.com/css2?family=B612&display=swap');
+
 
 *{
     margin: 0em;
@@ -17,6 +20,8 @@ $cherryBackground: #801336;
 }
 body{
     transition: background-color .4s;
+    background-color: $cherryBackground;
+
 }
 .main{
     transition: background-color 2s .4s;
@@ -26,6 +31,10 @@ body{
 }
 .main.example{
     background-color: $cherryBackground;
+}
+.main.portfolio{
+    background-color: $cherryBackground;
+    height: auto;
 }
 js-message{
     background: $jsYellow;
@@ -121,4 +130,123 @@ js-message{
 }
 .loading-bar.complete{
     width: 100%;
+}
+
+.hide-item{
+    display: none;
+}
+
+
+.portfolio-container{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    justify-content: center;
+    align-items: center;
+    grid-gap: 3rem 2.3rem;
+    margin-top: 16vh;
+    .project{
+        background-color: $mainBackground;
+        width: 258px;
+        height: 258px;
+        border-radius: 1rem; 
+        transition: all .7s ease-in-out;
+        transform-style: preserve-3d;
+        cursor: pointer;
+
+        justify-self: center;
+        align-self: center;
+        &:hover{
+            transform: rotateY(180deg);
+            box-shadow: 10px 9px 10px rgba($color: #000000, $alpha: .5);
+        }
+
+        .card{
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            padding: 0;
+        }   
+        .visible{
+            backface-visibility: hidden;
+            .project-image{
+                width: 100%;
+                height: 100%;
+                background-size: cover;
+                border-radius: 1rem;
+                background-position: top;
+            }
+        }
+        .hidden{
+            transform: rotateY(180deg);
+            display: flex;
+            justify-content: flex-end;
+            align-items: flex-end;
+            flex-direction: column;
+            .title{
+                width: 70%;
+                background: $lightYellow;
+                font-size: 1.5rem;
+                font-weight: 100;
+                color: $darkRed;
+                margin-bottom: 1rem;
+                text-align: center;
+            }
+            .description{
+                width: 100%;
+                height: 3rem;
+                border-bottom-left-radius: 1rem;
+                border-bottom-right-radius: 1rem;
+                background-color: $orangeDescription;
+                padding: .3rem;
+                p{
+                    color: white;
+                    font-size: 1rem;
+                    text-align: center;
+                }
+            }
+            .links{
+                width: 100%;
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                margin: 1rem 0;
+                padding: 0 1rem;
+            }
+            .link{
+                width: 3rem;
+                height: 3rem;
+                background: $lightYellow;
+                color: $mainBackground;
+                border-radius: 50%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                text-decoration: none;
+                margin-right: 1rem;
+                font-size: 2.5rem;
+            }
+        }
+    }
+    .empty-project{
+        overflow: hidden;
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-start;
+        position: relative;
+        &:hover{
+            transform: unset;
+            box-shadow: unset;
+        }
+        .coming-soon-banner{
+            background: $orangeDescription;
+            color: white;
+            text-align: center;
+            transform: rotate(45deg);
+            position: absolute;
+            top: 3rem;
+            right: -3rem;
+            width: 100%;
+            cursor: default;
+        }
+    }
 }
