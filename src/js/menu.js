@@ -1,5 +1,6 @@
 import REQUEST from "./REQUEST";
 import Paint from "./paint";
+import Contact from "./contact";
 
 export default class Menu{
     static moveLine(){
@@ -9,6 +10,7 @@ export default class Menu{
         line.style.bottom = `${selectedCoordenates.y}px`;
         line.style.left = `${selectedCoordenates.x}px`;
         line.style.width = `${selectedCoordenates.width}px`;
+
     }
     static loading(err = true){
         const loadingBar = document.querySelector('.loading-bar');
@@ -27,6 +29,7 @@ export default class Menu{
         button.classList.add('selected');
         this.moveLine();
         this.loading();
+
         REQUEST.post({view: button.getAttribute('data-section')})
         .then( data => {
             switch(data.view){
@@ -36,21 +39,28 @@ export default class Menu{
                 case 'portfolio':
                     Paint.portfolio(data);
                 break;
+                case 'contact':
+                    Paint.contact(data);
+                    Contact.events();
+                break;
                 default:
                 break;
             }
         })
     }
+
     static events(){
         const menuButtons = document.querySelector('.nav-menu').querySelectorAll('.menu-button');
         menuButtons.forEach( button => {
             button.addEventListener('click', ()=>{
                 this.changeViewAction(button);
+
             })
         })
         setTimeout(() => {
             this.moveLine();
         }, 400);
+
     }
 
     

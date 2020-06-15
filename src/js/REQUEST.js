@@ -7,4 +7,12 @@ export default class REQUEST{
         const data = await response.json();
         return data;
     }
+    static async put(params){
+        const response = await fetch('./server/main.php', {
+            method: 'POST',
+            body: JSON.stringify(params)
+        });
+        const data = await response.json();
+        return data;
+    }
 }

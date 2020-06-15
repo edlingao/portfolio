@@ -13,3 +13,6 @@
     width: 21rem !important;
     height: 17rem !important;
 }
+.svg-robot{
+    background-image: url('../img/robot.svg');
+}
